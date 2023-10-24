@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions 01</title>
+  </head>
+  <body>
+    <p>Hello World!</p>
+    <script>
+      function greet(name) {
+        if (!name) {
+          console.log("Hi there!");
+        } else {
+          console.log(`Hello ${name}`);
+        }
+      }
+      greet("Ana");
+      greet("Petru");
+      greet("Gheorghita");
+      greet();
+      function convertToFahrenheit(celsius) {
+        return (celsius * 9) / 5 + 32;
+      }
+      console.log(convertToFahrenheit(25));
+
+      function convertToCelsius(fahrenheit) {
+        return ((fahrenheit - 32) * 5) / 9;
+      }
+      console.log(convertToCelsius(86));
+
+      function convertTemperature(degrees, unit) {
+        if (unit === "C") {
+          console.log(convertToFahrenheit(degrees) + "F");
+        } else if (unit === "F") {
+          console.log(convertToCelsius(degrees) + "C");
+        }
+      }
+      convertTemperature(25, "C");
+      convertTemperature(86, "F");
+      //for adding
+    </script>
+  </body>
+</html>
