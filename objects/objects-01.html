@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Objects 01</title>
+  </head>
+  <body>
+    <h1>Objects</h1>
+    <script>
+      const product = {
+        name: "socks",
+        price: 1090,
+      };
+
+      console.log(product);
+      console.log(product.name);
+      console.log(product.price);
+
+      product.name = "cotton socks";
+      console.log(product.name);
+
+      // create a property that doesn't exist
+      product.newProperty = true;
+      console.log(product);
+
+      delete product.newProperty;
+      product.newProperty = true;
+
+      const product2 = {
+        name: "shirt",
+        "delivery-time": "1 day",
+        rating: {
+          stars: 4.5,
+          count: 87,
+        },
+        fun: function function1() {
+          console.log("function inside object");
+        },
+      };
+      console.log(product2.name); //dot notation
+      console.log(product2["name"]); //bracket notation
+      // console.log(product2.delivery-time); js gives an error because it tries to make the "-" opperation
+      console.log(product2["delivery-time"]); //let us use properties that don't work with dot notation
+      console.log(product2.rating.count);
+      console.log(product2.fun());
+
+      console.log(JSON.stringify(product2));
+
+      const jsonString = JSON.stringify(product2);
+      console.log(JSON.parse(jsonString));
+
+      console.log("hello".length);
+      console.log("hello".toUpperCase()); // Js automatic wraps the strigs into special objects. This object has the methods used bellow (lenght, toUperCase). This porcess is called auto-boxing
+      //Auto-boxing also works with numbers and booleans. Except Null and Undifined
+
+      const object1 = {
+        message: "hello",
+      };
+
+      const object2 = object1; //objects are refereces. object2 is not copying the object1. It actually has the same reference as the object1
+      object1.message = "Good job";
+      console.log(object1); //even tho we used const in the declaration of object1, we still can change de values of the message property. This is because the variable just contains a reference that points to the reference
+      console.log(object2);
+
+      const object3 = {
+        message: "Good job",
+      };
+
+      console.log(object3 === object1); // returns false. We can't compare objects itself. That is because objects are references, which means this code compares the references, not the values inside
+      console.log(object2 === object1); // returns true because object1 and object2 have the same references
+
+      const object4 = {
+        message: "Good job",
+        price: 799,
+      };
+
+      // const message = object4.message;
+      const { message, price } = object4; //It does the same thing as the line above. It's named destructuring
+      console.log(message); //Destructuring - easier way to take properties out of an object
+      console.log(price);
+
+      //Shorthand property
+      const object5 = {
+        // message: message,
+        message, //the same thing as the line above
+        // method: function function1 {
+        //   console.log('method')
+        // }
+        method() {
+          console.log("method"); //does the same thing as the lines above. This shortcut is called Shorthand Method
+        },
+      };
+      console.log(object5); //takes the value of the message variable and puts it in the message property
+      object5.method();
+      //for adding
+    </script>
+  </body>
+</html>
