@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.js-subscribe-button {
+  background-color: rgb(27, 23, 23);
+  color: #fff;
+  border-radius: 50px;
+  width: 140px;
+  height: 35px;
+}
+
+input,
+.calculate-button {
+  width: 250px;
+  height: 35px;
+}
+
+input {
+  padding: 0 15px;
+  font-size: 16px;
+}
+
+.calculate-button {
+  width: 100px;
+  height: 40px;
+  background-color: rgb(20, 153, 20);
+  color: #fff;
+  border: none;
+}
