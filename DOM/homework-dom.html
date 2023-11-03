@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Homework</title>
+  </head>
+  <body>
+    <button class="js-9a-button">9a</button>
+    <br />
+    <br />
+    <button class="js-9b-button">9b</button>
+    <br />
+    <br />
+    <button
+      onclick="document.querySelector('.js-paragraph').innerHTML = 'You chose: heads'"
+    >
+      heads
+    </button>
+    <button
+      onclick="document.querySelector('.js-paragraph').innerHTML = 'You chose: tails'"
+    >
+      tails
+    </button>
+    <p class="js-paragraph"></p>
+    <br /><br />
+    <input
+      type="text"
+      placeholder="Name"
+      class="js-name-input"
+      onkeydown="submitWithEnter(event)"
+    />
+    <input type="submit" value="Submit" onclick="displayUsersName()" />
+    <p class="js-users-name"></p>
+    <br />
+    <br />
+    <input
+      type="text"
+      placeholder="Type here"
+      class="js-type-box"
+      onkeyup="
+    typingText(event);
+    "
+    />
+    <p class="js-typed-text"></p>
+    <script>
+      console.log(document.querySelector(".js-9a-button"));
+      document.querySelector(".js-9b-button").innerHTML = "9b done!";
+
+      function displayUsersName() {
+        const text = document.querySelector(".js-name-input").value;
+        document.querySelector(
+          ".js-users-name"
+        ).innerHTML = `Your name is ${text}`;
+      }
+
+      function submitWithEnter(event) {
+        if (event.key === "Enter") {
+          displayUsersName();
+        }
+      }
+
+      document.querySelector(".js-typed-text").innerHTML = "";
+
+      function typingText(event) {
+        document.querySelector(".js-typed-text").innerHTML += event.key;
+      }
+    </script>
+  </body>
+</html>
