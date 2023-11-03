@@ -8,17 +8,14 @@
   </head>
   <body>
     <h1>Document Object Model</h1>
-    <p>YouTube Subsribe Button</p>
+    <p>YouTube Subscribe Button</p>
     <button
-      class="js-subscribe-button"
+      class="js-subscribe-button subscribe-button"
       onclick=" subscribe();
     "
     >
       Subscribe
     </button>
-
-    <br /><br />
-    <br />
     <p>Amazon Shipping Calculator</p>
     <p>Orders under $40 =+ $10 shipping.</p>
     <p>Orders over $40 = FREE shipping.</p>
@@ -26,7 +23,7 @@
       <input
         type="text"
         placeholder="Cost of order"
-        class="js-cost-input"
+        class="js-cost-input cost-input"
         onkeydown="
     // console.log(event,key);
     handleCostKeydown(event);
@@ -43,7 +40,7 @@
     </div>
     <p class="js-total-cost"></p>
 
-    <br /><br /><br />
+    <br />
     <p>Rock Paper Scissors game</p>
     <a href="../rock-paper-scissors/06-rock-paper-scissors.html">Click here</a>
     <script>
@@ -68,8 +65,10 @@
         if (buttonElement.innerText === "Subscribe") {
           //innerText - gets the text without extra spaces
           buttonElement.innerHTML = "Subscribed";
+          buttonElement.classList.add("is-subscribed");
         } else {
           buttonElement.innerHTML = "Subscribe";
+          buttonElement.classList.remove("is-subscribed");
         }
       }
     </script>

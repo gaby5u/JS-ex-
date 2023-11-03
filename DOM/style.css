@@ -8,29 +8,32 @@ h1 {
   text-align: center;
 }
 
-.js-subscribe-button {
+.subscribe-button {
   background-color: rgb(27, 23, 23);
   color: #fff;
   border-radius: 50px;
-  width: 140px;
-  height: 35px;
+  border: none;
+  padding: 10px 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 30px;
 }
 
-input,
+.is-subscribed {
+  background-color: rgb(240, 240, 240);
+  color: #000;
+}
+
+.cost-input {
+  font-size: 15px;
+  padding: 10px;
+}
+
 .calculate-button {
-  width: 250px;
-  height: 35px;
-}
-
-input {
-  padding: 0 15px;
-  font-size: 16px;
-}
-
-.calculate-button {
-  width: 100px;
-  height: 40px;
-  background-color: rgb(20, 153, 20);
+  background-color: rgb(17, 133, 17);
   color: #fff;
   border: none;
+  font-size: 15px;
+  padding: 12px 15px;
+  cursor: pointer;
 }
