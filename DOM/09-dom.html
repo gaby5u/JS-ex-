@@ -39,6 +39,7 @@
       </button>
     </div>
     <p class="js-total-cost"></p>
+    <p class="js-error error-message"></p>
 
     <br />
     <p>Rock Paper Scissors game</p>
@@ -52,6 +53,13 @@
         const inputElement = document.querySelector(".js-cost-input");
         let cost = Number(inputElement.value);
 
+        if (cost < 0) {
+          document.querySelector(".js-error").innerHTML =
+            "Error: cost cannot be less than $0";
+          return;
+        } else {
+          document.querySelector(".js-error").innerHTML = "";
+        }
         if (cost < 40) {
           cost = cost + 10;
         }

@@ -37,3 +37,7 @@ h1 {
   padding: 12px 15px;
   cursor: pointer;
 }
+
+.error-message {
+  color: red;
+}
