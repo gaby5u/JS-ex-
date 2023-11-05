@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced functions</title>
+  </head>
+  <body>
+    <script>
+      //functions are values which means we can save functions in a varialble
+      const function1 = function () {
+        console.log("hello");
+      }; //anonymous function = function without a name
+      console.log(function1);
+      console.log(typeof function1); //result: function
+      function1(); //runs the funcition inside the variable. Result: hello
+
+      const object1 = {
+        num: 2,
+        fun: function () {
+          console.log("hello2");
+        },
+      };
+      object1.fun();
+
+      function display(param) {
+        console.log(param);
+      }
+      display(2);
+
+      function run(param) {
+        param();
+      }
+      run(function () {
+        console.log("hello3");
+      }); //passing a function into another function = a function witch has another function as a parameter = CALLBACK function
+
+      // setTimeout();  allows us to call a function in the future
+
+      // setTimeout(function () {
+      //   console.log("timeout");
+      //   console.log("timeout2");
+      // }, 3000);
+
+      //sets a timer and immediately goes to the next code = ASYNCHROUNOUS Code
+
+      console.log("next line");
+
+      // setInterval(function () {
+      //   console.log("interval");
+      // }, 3000);
+
+      //set a timer and runs the code in the interval each 3 seconds
+
+      console.log("next line2");
+
+      ["make dinner", "wash dishes", "watch youtube"].forEach(function (
+        value,
+        index
+      ) {
+        if (value === "wash dishes") {
+          return; //does the same as continue; skips wash dishes
+          // YOU CANNOT BREAK A FOR EACH FUNCTION
+        }
+        console.log(index);
+        console.log(value);
+      }); //loop tho the array, takes the value => saves in the parameter => runs the code inside
+      // index - the index of the value
+    </script>
+  </body>
+</html>

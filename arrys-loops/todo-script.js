@@ -11,17 +11,16 @@ renderTodoList();
 function renderTodoList() {
   let todoListHTML = "";
 
-  for (i = 0; i < todoList.length; i++) {
-    const todoObject = todoList[i];
+  todoList.forEach(function (todoObject, index) {
     // const name = todoObject.name;
     const { name, dueDate } = todoObject; //destructoring; takes the todoObject.name and puts the value inside the name variable
     // const dueDate = todoObject.dueDate;
     const html = `
     <div>${name}</div>
     <div> ${dueDate} </div>
-    <button onclick = "todoList.splice(${i}, 1); renderTodoList()" class="delete-todo-button" >Delete</button>`;
+    <button onclick = "todoList.splice(${index}, 1); renderTodoList()" class="delete-todo-button" >Delete</button>`;
     todoListHTML += html;
-  }
+  });
   localStorage.setItem("todoList", JSON.stringify(todoList));
 
   document.querySelector(".js-todo-list").innerHTML = todoListHTML;

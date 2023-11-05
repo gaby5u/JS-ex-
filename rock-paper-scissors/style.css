@@ -33,7 +33,8 @@ body {
   margin-top: 60px;
 }
 
-.rest-score-button {
+.rest-score-button,
+.auto-play-button {
   background-color: #fff;
   border: none;
   font-size: 15px;
