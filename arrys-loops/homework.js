@@ -126,3 +126,79 @@ function countWords(words) {
 }
 
 console.log(countWords(["apple", "grape", "apple", "apple"]));
+
+function searchStringSearch(stringArray) {
+  let index = -1;
+  for (i = 0; i < stringArray.length; i++) {
+    if (stringArray[i] === "search") {
+      index = i;
+      break;
+    }
+  }
+  return index;
+}
+
+// console.log(searchStringSearch(["hello", "world", "good", "search"]));
+// console.log(searchStringSearch(["not", "found"]));
+
+function findIndex(array, word) {
+  index = -1;
+  for (i = 0; i < array.length; i++) {
+    if (array[i] === word) {
+      index = i;
+      break;
+    }
+  }
+  return index;
+}
+
+console.log(findIndex(["green", "red", "blue", "red"], "red"));
+console.log(findIndex(["green", "red", "blue", "red"], "yellow"));
+
+function removeEgg(foods) {
+  const foodsCopy = foods.slice();
+  const reversedFoods = foodsCopy.reverse();
+  //or const foodsCopy = foods.slice().reverse();
+  let newFoods = [];
+  let removedEggs = 0;
+  for (i = 0; i < reversedFoods.length; i++) {
+    if (foods[i] === "egg" && removedEggs < 2) {
+      removedEggs++;
+      continue;
+    } else {
+      newFoods.push(reversedFoods[i]);
+    }
+  }
+  console.log(foods);
+  return newFoods.reverse();
+}
+
+console.log(removeEgg(["egg", "apple", "egg", "egg", "ham"]));
+
+function FizzBuzz() {
+  for (i = 1; i <= 20; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else console.log(i);
+  }
+}
+
+FizzBuzz();
+
+function unique(array) {
+  let uniqueArr = [];
+  for (let i = 0; i < array.length; i++) {
+    let index = findIndex(array, array[i]);
+    if (i === index) {
+      uniqueArr.push(array[index]);
+    } else continue;
+  }
+  return uniqueArr;
+}
+
+console.log(unique(["green", "red", "blue", "red"]));
+console.log(unique(["red", "green", "green", "red"]));
