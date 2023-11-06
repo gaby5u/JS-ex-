@@ -15,19 +15,90 @@ updateScoreElement();
 
 let isAutoPlaying = false;
 let intervalId;
+const autoPlayButton = document.querySelector(".js-auto-play-button");
+
+autoPlayButton.addEventListener("click", () => {
+  autoPlay();
+});
 
 function autoPlay() {
   if (!isAutoPlaying) {
-    intervalId = setInterval(function () {
+    autoPlayButton.innerHTML = "Stop Playing";
+    intervalId = setInterval(() => {
       const playerMove = pickComputerMove();
       playGame(playerMove);
     }, 1000);
     isAutoPlaying = true;
   } else {
+    autoPlayButton.innerHTML = "Auto Play";
     clearInterval(intervalId);
     isAutoPlaying = false;
   }
 }
+
+document
+  .querySelector(".js-reset-score-button")
+  .addEventListener("click", () => {
+    resetScoreConfirmationFunction();
+  });
+
+function resetScoreConfirmationFunction() {
+  document.querySelector(
+    ".js-reset-score-contirmation"
+  ).innerHTML = `Are you sure you want to reset the score? <button class="js-reset-score-yes-button reset-confirm-button">Yes</button>
+  <button class="js-reset-score-no-button reset-confirm-button">No</button>`;
+
+  document
+    .querySelector(".js-reset-score-yes-button")
+    .addEventListener("click", () => {
+      resetScore();
+      hideResetConfirmation();
+    });
+
+  document
+    .querySelector(".js-reset-score-no-button")
+    .addEventListener("click", () => {
+      hideResetConfirmation();
+    });
+}
+
+function hideResetConfirmation() {
+  document.querySelector(".js-reset-score-contirmation").innerHTML = "";
+}
+
+function resetScore() {
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  localStorage.removeItem("score");
+  updateScoreElement();
+}
+
+document.querySelector(".js-rock-button").addEventListener("click", () => {
+  playGame("rock");
+});
+
+document.querySelector(".js-paper-button").addEventListener("click", () => {
+  playGame("paper");
+});
+
+document.querySelector(".js-scissors-button").addEventListener("click", () => {
+  playGame("scissors");
+});
+
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "r") {
+    playGame("rock");
+  } else if (event.key === "p") {
+    playGame("paper");
+  } else if (event.key === "s") {
+    playGame("scissors");
+  } else if (event.key === "a") {
+    autoPlay();
+  } else if (event.key === "Backspace") {
+    resetScoreConfirmationFunction();
+  }
+});
 
 function playGame(playerMove) {
   const computerMove = pickComputerMove();
